@@ -137,7 +137,7 @@ function RegisterMenu()
                 local command = Config.emoteCommands[1]
 
                 emotes[index] = emote
-                emoteOptions[index] = { label = emote.Label, description = ('/%s %s - %s'):format(command, emote.Command, locale('hold_to_preview')) }
+                emoteOptions[index] = { label = emote.Label, description = ('/%s %s - %s'):format(command, emote.Command, locale('hold_to_preview')) } -- Shows "Hold E and select to preview"
             end
         end
 
@@ -202,12 +202,13 @@ function RegisterMenu()
                     lib.showMenu('emotemenu_submenu_emotes')
                 end,
             }, function(_, scrollIndex, args)
+                -- Check if preview is enabled and E key (control 38) is being held
                 if Config.enableEmotePreview and IsControlPressed(0, 38) then
-                    preview.showEmote(args.emotes[scrollIndex])
-                    return
+                    preview.showEmote(args.emotes[scrollIndex]) -- Show preview instead of playing emote
+                    return -- Return early to prevent emote from playing on player
                 end
 
-                PlayEmote(args.emotes[scrollIndex])
+                PlayEmote(args.emotes[scrollIndex]) -- Play the emote normally
             end)
 
             lib.showMenu('emotemenu_submenu_emotes_search')
@@ -289,12 +290,13 @@ function RegisterMenu()
 
             lib.showMenu('emotemenu_submenu_binds')
         else
+            -- Check if preview is enabled and E key (control 38) is being held
             if Config.enableEmotePreview and IsControlPressed(0, 38) then
-                preview.showEmote(args.emotes[scrollIndex])
-                return
+                preview.showEmote(args.emotes[scrollIndex]) -- Show preview instead of playing emote
+                return -- Return early to prevent emote from playing on player
             end
 
-            PlayEmote(args.emotes[scrollIndex])
+            PlayEmote(args.emotes[scrollIndex]) -- Play the emote normally
         end
     end)
 

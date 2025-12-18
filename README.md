@@ -3,6 +3,8 @@
 # Previews
 <img src='https://i.gyazo.com/df3b88e92beb3237380f17b1cfa6111d.png'><img src='https://i.gyazo.com/7e4d600d326f6fbde2be1d003abebb74.png'><img src='https://i.gyazo.com/42096b2c983e8145557a148c6d5b6819.png'>
 
+**📖 Documentation**: See [Emote Preview System Documentation](docs/EMOTE_PREVIEW_SYSTEM.md) for detailed technical information or [Quick Reference Guide](docs/PREVIEW_QUICK_REFERENCE.md) for a quick overview.
+
 # Support:
 
 For support join my discord here: https://discord.gg/scully
