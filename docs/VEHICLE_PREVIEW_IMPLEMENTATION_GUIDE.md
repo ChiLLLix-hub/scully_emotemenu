@@ -154,6 +154,9 @@ function VehiclePreview.createPreviewVehicle(vehicleModel)
     return vehicle
 end
 
+-- Make VehiclePreview globally accessible for main.lua
+_G.VehiclePreview = VehiclePreview
+
 ---Start positioning and control thread
 ---@param vehicle number The vehicle entity to control
 ---@param previewId number The preview ID for cleanup tracking
@@ -300,8 +303,6 @@ function VehiclePreview.show(vehicleModel)
     AddTextComponentString("Vehicle preview started! Use arrow keys to rotate, 1-8 for colors.")
     DrawNotification(false, false)
 end
-
-return VehiclePreview
 ```
 
 ---
@@ -309,7 +310,8 @@ return VehiclePreview
 ### 5. client/main.lua - Commands and Usage
 
 ```lua
-local VehiclePreview = require('client.preview')
+-- VehiclePreview is globally accessible from preview.lua
+-- No require needed in FiveM
 
 -- Command to preview a vehicle
 RegisterCommand('previewvehicle', function(source, args, rawCommand)
